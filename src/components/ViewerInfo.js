@@ -37,7 +37,7 @@ const ViewerInfo = () => {
       {/*dynamic dropdown using select */}
       <div className="dropdown-opt"> 
         <select value={value} onChange={(e) => setValue(e.target.value)}>
-          <option value="">Select episode</option>
+          <option value="">Select season</option>
           {seasons.map((season) => (
             <option
               key={`season ${season}`}
