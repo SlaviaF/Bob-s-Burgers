@@ -32,9 +32,10 @@ const ViewerInfo = () => {
       {error && <h3> Error: Something went wrong</h3>}
       <div className="viewer-info-container">
       <div className="card-display my-4">
-       <h3> Enter Season to get details on the Viewership</h3>
+       <h3> Select the Season Number to get details on Viewership</h3>
       </div>
-      <div className="dropdown-opt">
+      {/*dynamic dropdown using select */}
+      <div className="dropdown-opt"> 
         <select value={value} onChange={(e) => setValue(e.target.value)}>
           <option value="">Select episode</option>
           {seasons.map((season) => (
