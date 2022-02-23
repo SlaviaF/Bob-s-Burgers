@@ -1,0 +1,40 @@
+.nav-ul {
+  display: flex;
+  text-decoration: none !important;
+  list-style: none;
+  font-size: 20px;
+}
+.nav-ul li {
+  text-decoration: none !important;
+  padding: 0 20px;
+}
+a,
+a:link,
+a:visited {
+  text-decoration: none;
+  color: rgb(37, 36, 36);
+}
+
+.banner {
+  width: 100%;
+  height: auto;
+}
+@media only screen and (max-width: 700px) {
+  .nav-ul {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    list-style: none;
+    font-size: 20px;
+  }
+  .nav-ul li {
+    text-decoration: none !important;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .banner {
+    height: 100px;
+  }
+}
