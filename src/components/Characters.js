@@ -30,6 +30,7 @@ const Characters = () => {
       <div className="container character-container">
         <h2 className="text-center pt-4">
           Meet the awesome characters from Bob's Burger
+
         </h2>
         <input
           type="text"
@@ -60,6 +61,8 @@ const Characters = () => {
                   <p className="character-name">{character.name}</p>
                 </div>
               ))}
+         {filteredItems.length <= 0 &&<h3 className="no-character-msg">I wonder who is it that your looking for....</h3>}
+
         </div>
       </div>
       <Pagination
