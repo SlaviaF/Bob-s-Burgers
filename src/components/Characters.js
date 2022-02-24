@@ -9,7 +9,6 @@ const Characters = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [charactersPerPage, setcharactersPerPage] = useState(25);
   const [filterQuery, setFilterQuery] = useState("");
-  console.log(filterQuery);
   // Get characters on the current page
   const indexOfLastCharacter = currentPage * charactersPerPage;
   const indexOfFirstCharacter = indexOfLastCharacter - charactersPerPage;
@@ -21,7 +20,6 @@ const Characters = () => {
   const filteredItems = currentCharacters.filter((character) =>
     character.name.toLowerCase().includes(filterQuery.toLowerCase())
   );
-  console.log(filteredItems);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <>
@@ -69,6 +67,7 @@ const Characters = () => {
         itemsPerPage={charactersPerPage}
         totalItems={filterQuery ? filteredItems.length : data.length}
         paginate={paginate}
+        currentPage={currentPage}
       />
     </>
   );
