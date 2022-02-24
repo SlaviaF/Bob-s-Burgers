@@ -22,12 +22,16 @@ a:visited {
   height: auto;
 }
 @media only screen and (max-width: 700px) {
+    h2{
+        font-size: 22px;
+    }
   .nav-ul {
     display: flex;
     flex-direction: column;
     text-decoration: none;
     list-style: none;
     font-size: 20px;
+    padding-top:10px;
   }
   .nav-ul li {
     text-decoration: none !important;
@@ -35,7 +39,9 @@ a:visited {
     font-size: 14px;
     font-weight: 600;
   }
-
+  .burgerTitle{
+      display: none;
+  }
   .banner {
     height: 100px;
   }

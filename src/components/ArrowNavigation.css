@@ -1,0 +1,11 @@
+.arrow-container{
+    display: inline-flex;
+}
+.arrow{
+    border:none;
+    background: none;
+    font-size: 90px;
+    color: green;
+   
+}
+

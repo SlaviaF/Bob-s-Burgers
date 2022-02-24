@@ -16,7 +16,7 @@ const DisplayEpisodes = ({ episodes }) => {
 
   return (
     <>
-      <h2 className="text-center pt-4">All the episodes at Bob Burgers</h2>
+      
       <div className="container-fluid main-container">
         <div className="card-display my-4">
           {currentEpisodes.map((episode) => (

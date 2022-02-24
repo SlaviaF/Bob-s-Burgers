@@ -23,19 +23,20 @@ const Characters = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <>
-      {isLoading && <h1 className="loader">Loading...</h1>}
       {error && <h3> Error: Something went wrong</h3>}
       <div className="container character-container">
         <h2 className="text-center pt-4">
           Meet the awesome characters from Bob's Burger
-
         </h2>
+
         <input
           type="text"
           name="filterQuery"
           value={filterQuery}
           onChange={(e) => setFilterQuery(e.target.value)}
         />
+        {isLoading && <h1 className="loader">Loading...</h1>}
+
         {/*Conditional rendering of the Characters for the input field*/}
         <div className="image-container">
           {filterQuery
@@ -59,8 +60,11 @@ const Characters = () => {
                   <p className="character-name">{character.name}</p>
                 </div>
               ))}
-         {filteredItems.length <= 0 &&<h3 className="no-character-msg">I wonder who is it that your looking for....</h3>}
-
+          {filteredItems.length <= 0 && !isLoading &&(
+            <h3 className="no-character-msg">
+              I wonder who is it that your looking for....
+            </h3>
+          )}
         </div>
       </div>
       <Pagination

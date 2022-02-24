@@ -15,6 +15,7 @@
     margin:20px;
     border: 1px solid rgb(65, 134, 151);
     box-shadow:5px 5px lightblue;
+    padding-left: 10px;
     
 }
 
@@ -40,3 +41,10 @@
   font-family: "Sue Ellen Francisco", cursive;
   font-size: 27px;
 }
+
+
+@media only screen and (max-width: 700px) {
+    .character-container input{
+        width:65%;
+    }
+  }

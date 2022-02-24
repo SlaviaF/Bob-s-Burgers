@@ -8,6 +8,7 @@ const FetchEpisodes = () => {
   );
   return (
     <div>
+      <h2 className="text-center pt-4">All the episodes at Bob Burgers</h2>
       {isLoading && <h1 className="loader">Loading...</h1>}
       {error && <h3> Error: Something went wrong</h3>}
       <div className="container">
