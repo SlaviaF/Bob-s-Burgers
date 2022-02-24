@@ -8,7 +8,8 @@ const Characters = () => {
   );
   const [currentPage, setCurrentPage] = useState(1);
   const [charactersPerPage, setcharactersPerPage] = useState(25);
-
+  const [filterQuery, setFilterQuery] = useState("");
+  console.log(filterQuery);
   // Get characters on the current page
   const indexOfLastCharacter = currentPage * charactersPerPage;
   const indexOfFirstCharacter = indexOfLastCharacter - charactersPerPage;
@@ -16,31 +17,54 @@ const Characters = () => {
     indexOfFirstCharacter,
     indexOfLastCharacter
   );
+  //Filtered items for the input field
+  const filteredItems = currentCharacters.filter((character) =>
+    character.name.toLowerCase().includes(filterQuery.toLowerCase())
+  );
+  console.log(filteredItems);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <>
       {isLoading && <h1 className="loader">Loading...</h1>}
       {error && <h3> Error: Something went wrong</h3>}
-      <div className="container">
+      <div className="container character-container">
         <h2 className="text-center pt-4">
           Meet the awesome characters from Bob's Burger
         </h2>
+        <input
+          type="text"
+          name="filterQuery"
+          value={filterQuery}
+          onChange={(e) => setFilterQuery(e.target.value)}
+        />
+        {/*Conditional rendering of the Characters for the input field*/}
         <div className="image-container">
-          {currentCharacters.map((character) => (
-            <div className="image-box" key={character.id}>
-              <img
-                className="character-img"
-                src={character.image}
-                alt={character.name}
-              />
-              <p className="character-name">{character.name}</p>
-            </div>
-          ))}
+          {filterQuery
+            ? filteredItems.map((character) => (
+                <div className="image-box" key={character.id}>
+                  <img
+                    className="character-img"
+                    src={character.image}
+                    alt={character.name}
+                  />
+                  <p className="character-name">{character.name}</p>
+                </div>
+              ))
+            : currentCharacters.map((character) => (
+                <div className="image-box" key={character.id}>
+                  <img
+                    className="character-img"
+                    src={character.image}
+                    alt={character.name}
+                  />
+                  <p className="character-name">{character.name}</p>
+                </div>
+              ))}
         </div>
       </div>
       <Pagination
         itemsPerPage={charactersPerPage}
-        totalItems={data.length}
+        totalItems={filterQuery ? filteredItems.length : data.length}
         paginate={paginate}
       />
     </>
