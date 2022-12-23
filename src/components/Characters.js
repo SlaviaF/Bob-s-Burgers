@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Characters.css";
 import Pagination from "./Pagination";
 import useFetch from "../useFetch";
+
 const Characters = () => {
   const { data, isLoading, error } = useFetch(
     `https://bobsburgers-api.herokuapp.com/characters`
